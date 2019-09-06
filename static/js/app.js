@@ -55,12 +55,13 @@ function buildCharts(sample) {
     // Define lists of values for parameters
     sample_values_bubble = data[2].value;
     otu_ids_bubble = data[0].value;
-    otu_labels_pie = data[1].value;
+    otu_labels_bubble = data[1].value;
 
     // Define a trace using these parameter lists
     bubble_trace = [{
       x: otu_ids_bubble,
       y: sample_values_bubble,
+      hoverinfo: otu_labels_bubble,
       mode: 'markers',
       marker: {
         size: sample_values_bubble,
