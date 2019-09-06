@@ -72,8 +72,6 @@ function buildCharts(sample) {
     // Define a layout variable
     var bubble_layout = {
       showlegend: false,
-      height: 500,
-      width: 1000,
       margin: {
         l: 50,
         r: 0,
