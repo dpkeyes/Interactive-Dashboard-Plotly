@@ -72,7 +72,14 @@ function buildCharts(sample) {
     var bubble_layout = {
       showlegend: false,
       height: 600,
-      width: 1200
+      width: 1200,
+      margin: {
+        l: 50,
+        r: 0,
+        b: 0,
+        t: 0,
+        pad: 4
+      }
     };
 
     // Draw the bubble chart
@@ -97,8 +104,15 @@ function buildCharts(sample) {
     
     // Define a layout variable
     var pie_layout = {
-      height: 600,
-      width: 600
+      height: 500,
+      width: 500,
+      margin: {
+        l: 50,
+        r: 0,
+        b: 0,
+        t: 0,
+        pad: 4
+      }
     };
     
     // Draw the pie chart
