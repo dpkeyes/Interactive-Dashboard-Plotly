@@ -71,15 +71,20 @@ function buildCharts(sample) {
     // Define a layout variable
     var bubble_layout = {
       showlegend: false,
-      height: 600,
-      width: 1200,
+      height: 500,
+      width: 1000,
       margin: {
         l: 50,
         r: 0,
         b: 0,
         t: 0,
         pad: 4
-      }
+      },
+      xaxis: {
+        title: {
+          text: "OTU ID"
+        }
+     }
     };
 
     // Draw the bubble chart
@@ -93,23 +98,28 @@ function buildCharts(sample) {
     sample_values_pie = data[2].value.slice(0,10);
     otu_ids_pie = data[0].value.slice(0,10);
     otu_labels_pie = data[1].value.slice(0,10);
+    console.log(otu_labels_pie);
 
     // Define a trace using these parameter lists
     var pie_trace = [{
       values: sample_values_pie,
       labels: otu_ids_pie,
-      hoverinfo: otu_labels_pie, // NOT WORKING - NEED TO GET THIS WORKING!!!!!!
+      hoverinfo: otu_labels_pie,
+      hoverlabel: {
+        namelength: -1
+      },
       type: 'pie'
     }];
     
     // Define a layout variable
     var pie_layout = {
+      title: "",
       height: 500,
       width: 500,
       margin: {
         l: 50,
         r: 0,
-        b: 0,
+        b: 50,
         t: 0,
         pad: 4
       }
