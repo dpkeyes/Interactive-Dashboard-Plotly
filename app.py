@@ -20,6 +20,7 @@ app = Flask(__name__)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/bellybutton.sqlite"
 db = SQLAlchemy(app)
+db.create_all()
 # define tables
 # class Samples_Metadata(db.Model):
 #     __tablename__ = 'sample_metadata'
