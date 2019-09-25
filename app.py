@@ -1,3 +1,7 @@
+#################################################
+# Import Dependencies
+#################################################
+
 import os
 
 import pandas as pd
@@ -21,34 +25,20 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/bellybutton.sqlite"
 db = SQLAlchemy(app)
 db.create_all()
-# define tables
-# class Samples_Metadata(db.Model):
-#     __tablename__ = 'sample_metadata'
-# class Samples(db.Model):
-#     __tablename__ = 'samples'
-
-# db.Model = automap_base(db.Model)
-# db.Model.prepare(db.engine,reflect = True)
 
 # reflect an existing database into a new model
 Base = automap_base(db.Model)
+
 # reflect the tables
 Base.prepare(db.engine, reflect=True)
-
-
-# Base = declarative_base()
-# metadata = sqlalchemy.MetaData(bind = db)
-
-# class Samples_Metadata(db.Model):
-#     __table__ = sqlalchemy.Table("sample_metadata",metadata,autoload = True)
-
-# class Samples(db.Model):
-#     __table__ = sqlalchemy.Table("samples",metadata,autoload = True)
 
 # Save references to each table
 Samples_Metadata = Base.classes.sample_metadata
 Samples = Base.classes.samples
-# from models import Samples_Metadata, Samples
+
+#################################################
+# Define Routes
+#################################################
 
 @app.route("/")
 def index():
@@ -119,6 +109,9 @@ def samples(sample):
     }
     return jsonify(data)
 
+#################################################
+# Conclude Flask
+#################################################
 
 if __name__ == "__main__":
     app.run()
